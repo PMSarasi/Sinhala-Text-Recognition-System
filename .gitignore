@@ -1,0 +1,6 @@
+users.db
+.env
+__pycache__/
+*.pyc
+.DS_Store
+trocr_sinhala_best/
