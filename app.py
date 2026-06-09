@@ -1,6 +1,6 @@
 # ============================================
 # SINHALA HANDWRITTEN OCR
-# Modern Glass Design - Professional UI
+# Professional Complete Website - Final Version
 # ============================================
 
 import streamlit as st
@@ -23,26 +23,24 @@ st.set_page_config(
 )
 
 # ============================================
-# MODERN COLOR SCHEME
+# PROFESSIONAL COLOR SCHEME
 # ============================================
 
 COLORS = {
-    "primary": "#4361EE",      # Modern blue
-    "primary-dark": "#3A56D4",
-    "secondary": "#7209B7",    # Purple accent
-    "bg-gradient-start": "#667eea",
-    "bg-gradient-end": "#764ba2",
+    "primary": "#4F46E5",      # Indigo
+    "primary-dark": "#4338CA",
+    "secondary": "#06B6D4",    # Cyan
+    "success": "#10B981",      # Emerald
+    "error": "#EF4444",        # Red
+    "warning": "#F59E0B",      # Amber
+    "dark": "#1F2937",         # Gray-800
+    "light": "#F9FAFB",        # Gray-50
     "white": "#FFFFFF",
-    "text-dark": "#1A1A2E",
-    "text-light": "#666666",
-    "border": "#E0E0E0",
-    "error": "#F56565",
-    "success": "#48BB78",
-    "card-bg": "rgba(255, 255, 255, 0.95)",
+    "border": "#E5E7EB",
 }
 
 # ============================================
-# CUSTOM CSS - Modern Glass Design
+# CSS
 # ============================================
 
 st.markdown(f"""
@@ -52,12 +50,6 @@ st.markdown(f"""
     footer {{visibility: hidden;}}
     header {{visibility: hidden;}}
     
-    /* Main Background - Gradient like reference */
-    .stApp {{
-        background: linear-gradient(135deg, {COLORS['bg-gradient-start']} 0%, {COLORS['bg-gradient-end']} 100%);
-        min-height: 100vh;
-    }}
-    
     /* Main Container */
     .main-container {{
         max-width: 1200px;
@@ -65,332 +57,226 @@ st.markdown(f"""
         padding: 2rem;
     }}
     
-    /* ========== GLASS CARD ========== */
-    .glass-card {{
-        background: {COLORS['card-bg']};
-        backdrop-filter: blur(10px);
-        border-radius: 24px;
-        padding: 2rem;
-        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-        border: 1px solid rgba(255,255,255,0.3);
-    }}
-    
-    /* ========== HEADER SECTION ========== */
-    .header-section {{
+    /* Header */
+    .header {{
         text-align: center;
         margin-bottom: 2rem;
     }}
     
-    .logo-icon {{
+    .header-icon {{
         font-size: 3rem;
         margin-bottom: 0.5rem;
     }}
     
-    .main-title {{
-        font-size: 2.2rem;
+    .header-title {{
+        font-size: 2rem;
         font-weight: 700;
-        color: {COLORS['white']};
-        margin-bottom: 0.5rem;
-        letter-spacing: -0.5px;
+        color: {COLORS['dark']};
+        margin-bottom: 0.25rem;
     }}
     
-    .main-subtitle {{
+    .header-subtitle {{
         font-size: 0.9rem;
-        color: rgba(255,255,255,0.8);
+        color: {COLORS['dark']};
+        opacity: 0.6;
     }}
     
-    /* ========== FEATURE CARDS ========== */
-    .features-row {{
+    /* Feature Cards */
+    .features {{
         display: flex;
-        gap: 1.5rem;
+        gap: 1rem;
         justify-content: center;
         margin-bottom: 2rem;
-        flex-wrap: wrap;
     }}
     
-    .feature-card {{
-        background: {COLORS['card-bg']};
-        border-radius: 16px;
-        padding: 1rem 1.5rem;
+    .feature {{
+        background: {COLORS['white']};
+        border-radius: 12px;
+        padding: 1rem;
         text-align: center;
         flex: 1;
-        min-width: 150px;
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }}
     
     .feature-icon {{
         font-size: 1.5rem;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.25rem;
     }}
     
     .feature-title {{
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         font-weight: 600;
-        color: {COLORS['text-dark']};
+        color: {COLORS['dark']};
     }}
     
-    /* ========== AUTH CARD ========== */
-    .auth-wrapper {{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 500px;
-    }}
-    
+    /* Auth Card */
     .auth-card {{
-        background: {COLORS['card-bg']};
-        border-radius: 28px;
+        background: {COLORS['white']};
+        border-radius: 16px;
         padding: 2rem;
-        width: 100%;
-        max-width: 440px;
-        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-        border: 1px solid rgba(255,255,255,0.3);
-    }}
-    
-    .auth-header {{
-        text-align: center;
-        margin-bottom: 1.8rem;
-    }}
-    
-    .auth-icon {{
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
+        max-width: 400px;
+        margin: 0 auto;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     }}
     
     .auth-title {{
         font-size: 1.5rem;
-        font-weight: 700;
-        color: {COLORS['text-dark']};
+        font-weight: 600;
+        color: {COLORS['dark']};
+        text-align: center;
         margin-bottom: 0.25rem;
     }}
     
     .auth-subtitle {{
         font-size: 0.8rem;
-        color: {COLORS['text-light']};
+        color: {COLORS['dark']};
+        opacity: 0.6;
+        text-align: center;
+        margin-bottom: 1.5rem;
     }}
     
-    /* ========== FORM STYLES ========== */
-    .form-group {{
-        margin-bottom: 1rem;
-    }}
-    
-    .input-label {{
-        display: block;
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: {COLORS['text-dark']};
-        margin-bottom: 0.3rem;
-    }}
-    
-    /* Streamlit Input Override - Rounded like reference */
+    /* Form Elements */
     .stTextInput > div > div > input {{
-        width: 100%;
-        padding: 12px 16px;
-        font-size: 0.9rem;
-        font-family: 'Inter', sans-serif;
+        border-radius: 8px;
         border: 1px solid {COLORS['border']};
-        border-radius: 12px;
-        background: white;
-        transition: all 0.2s ease;
+        padding: 8px 12px;
+        font-size: 0.9rem;
     }}
     
-    .stTextInput > div > div > input:focus {{
-        border-color: {COLORS['primary']};
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(67,97,238,0.1);
-    }}
-    
-    .stTextInput > div > div > input::placeholder {{
-        color: #B0B0B0;
-        font-size: 0.85rem;
-    }}
-    
-    /* Checkbox styling */
-    .checkbox-row {{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 1rem 0;
-    }}
-    
-    .remember-text {{
-        font-size: 0.8rem;
-        color: {COLORS['text-light']};
-    }}
-    
-    .forgot-link {{
-        font-size: 0.8rem;
-        color: {COLORS['primary']};
-        text-decoration: none;
-        cursor: pointer;
-    }}
-    
-    .forgot-link:hover {{
-        text-decoration: underline;
-    }}
-    
-    /* ========== BUTTONS ========== */
     .stButton > button {{
         width: 100%;
-        padding: 12px 20px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        border: none;
-        border-radius: 40px;
-        background: linear-gradient(135deg, {COLORS['primary']} 0%, {COLORS['secondary']} 100%);
-        color: white;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        margin-top: 0.5rem;
-    }}
-    
-    .stButton > button:hover {{
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(67,97,238,0.3);
-    }}
-    
-    /* Secondary Button */
-    .secondary-btn > button {{
-        background: transparent;
-        border: 2px solid {COLORS['primary']};
-        color: {COLORS['primary']};
-    }}
-    
-    .secondary-btn > button:hover {{
         background: {COLORS['primary']};
         color: white;
-    }}
-    
-    /* ========== DIVIDER ========== */
-    .divider {{
-        text-align: center;
-        margin: 1.5rem 0;
-        position: relative;
-    }}
-    
-    .divider::before {{
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: {COLORS['border']};
-    }}
-    
-    .divider span {{
-        background: {COLORS['card-bg']};
-        padding: 0 1rem;
-        position: relative;
-        font-size: 0.75rem;
-        color: {COLORS['text-light']};
-    }}
-    
-    /* ========== MESSAGES ========== */
-    .success-message {{
-        background: #C6F6D5;
-        color: #276749;
-        padding: 10px 14px;
-        border-radius: 12px;
-        font-size: 0.8rem;
-        margin-bottom: 1rem;
-    }}
-    
-    .error-message {{
-        background: #FED7D7;
-        color: #C53030;
-        padding: 10px 14px;
-        border-radius: 12px;
-        font-size: 0.8rem;
-        margin-bottom: 1rem;
-    }}
-    
-    /* ========== FOOTER ========== */
-    .footer {{
-        text-align: center;
-        padding: 2rem 0 1rem;
-        color: rgba(255,255,255,0.6);
-        font-size: 0.7rem;
-    }}
-    
-    /* ========== LOGOUT BUTTON ========== */
-    .logout-btn {{
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: rgba(255,255,255,0.2);
-        backdrop-filter: blur(8px);
-        color: white;
-        border: 1px solid rgba(255,255,255,0.3);
-        border-radius: 40px;
-        padding: 8px 20px;
-        font-size: 0.8rem;
         font-weight: 500;
-        cursor: pointer;
-        z-index: 1000;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 16px;
         transition: all 0.2s;
     }}
     
-    .logout-btn:hover {{
-        background: rgba(255,255,255,0.3);
+    .stButton > button:hover {{
+        background: {COLORS['primary-dark']};
     }}
     
-    /* ========== DASHBOARD STYLES ========== */
-    .welcome-card {{
+    /* Links */
+    .link {{
+        color: {COLORS['primary']};
+        text-decoration: none;
+        font-size: 0.8rem;
+        cursor: pointer;
+    }}
+    
+    .link:hover {{
+        text-decoration: underline;
+    }}
+    
+    /* Divider */
+    .divider {{
+        text-align: center;
+        margin: 1rem 0;
+        color: {COLORS['dark']};
+        opacity: 0.4;
+        font-size: 0.7rem;
+    }}
+    
+    /* Footer */
+    .footer {{
+        text-align: center;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid {COLORS['border']};
+        font-size: 0.7rem;
+        color: {COLORS['dark']};
+        opacity: 0.5;
+    }}
+    
+    /* Dashboard */
+    .welcome {{
         background: linear-gradient(135deg, {COLORS['primary']} 0%, {COLORS['secondary']} 100%);
-        border-radius: 20px;
+        border-radius: 12px;
         padding: 1.5rem;
         margin-bottom: 1.5rem;
         color: white;
     }}
     
-    .stats-grid {{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+    .stats {{
+        display: flex;
         gap: 1rem;
         margin-bottom: 1.5rem;
     }}
     
-    .stat-card {{
-        background: {COLORS['card-bg']};
-        border-radius: 16px;
+    .stat {{
+        background: {COLORS['white']};
+        border-radius: 12px;
         padding: 1rem;
         text-align: center;
-        backdrop-filter: blur(8px);
+        flex: 1;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }}
     
     .stat-number {{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 700;
         color: {COLORS['primary']};
     }}
     
-    .result-card {{
-        background: {COLORS['card-bg']};
-        border-radius: 16px;
+    .result {{
+        background: {COLORS['white']};
+        border-radius: 12px;
         padding: 1rem;
         border-left: 3px solid {COLORS['primary']};
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }}
     
     .section-title {{
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 600;
-        color: {COLORS['text-dark']};
-        margin-bottom: 0.8rem;
+        color: {COLORS['dark']};
+        margin-bottom: 0.5rem;
     }}
     
-    hr {{
-        margin: 1rem 0;
-        border: none;
-        height: 1px;
-        background: rgba(255,255,255,0.2);
+    /* Messages */
+    .success {{
+        background: #D1FAE5;
+        color: #065F46;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }}
+    
+    .error {{
+        background: #FEE2E2;
+        color: #991B1B;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }}
+    
+    /* Logout Button */
+    .logout {{
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        background: {COLORS['white']};
+        color: {COLORS['dark']};
+        border: 1px solid {COLORS['border']};
+        border-radius: 20px;
+        padding: 6px 16px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        z-index: 1000;
+    }}
+    
+    .logout:hover {{
+        background: {COLORS['light']};
     }}
 </style>
 """, unsafe_allow_html=True)
 
 # ============================================
-# DATABASE FUNCTIONS
+# DATABASE
 # ============================================
 
 def init_db():
@@ -414,24 +300,24 @@ def verify_pw(password, hashed):
 def register_user(email, username, password):
     import re
     if not re.match(r'^[\w\.-]+@[\w\.-]+\.\w+$', email):
-        return False, "Invalid email format"
+        return False, "Invalid email"
     if not re.match(r'^[a-zA-Z0-9_]{3,20}$', username):
-        return False, "Username must be 3-20 characters"
+        return False, "Username 3-20 characters"
     if len(password) < 6:
-        return False, "Password must be at least 6 characters"
+        return False, "Password min 6 characters"
     
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute("SELECT id FROM users WHERE email = ? OR username = ?", (email, username))
     if c.fetchone():
         conn.close()
-        return False, "Email or username already exists"
+        return False, "Email or username exists"
     
     c.execute("INSERT INTO users (email, username, password) VALUES (?, ?, ?)",
               (email, username, hash_pw(password)))
     conn.commit()
     conn.close()
-    return True, "Registration successful!"
+    return True, "Registration successful"
 
 def login_user(email_or_username, password):
     conn = sqlite3.connect('users.db')
@@ -442,11 +328,11 @@ def login_user(email_or_username, password):
     conn.close()
     if user and verify_pw(password, user[2]):
         return True, {"username": user[0], "email": user[1]}
-    return False, "Invalid email/username or password"
+    return False, "Invalid credentials"
 
-def reset_user_password(email, new_password):
+def reset_password(email, new_password):
     if len(new_password) < 6:
-        return False, "Password must be at least 6 characters"
+        return False, "Password min 6 characters"
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute("UPDATE users SET password = ? WHERE email = ?", (hash_pw(new_password), email))
@@ -465,7 +351,7 @@ def email_exists(email):
 init_db()
 
 # ============================================
-# SESSION STATE
+# SESSION
 # ============================================
 
 if 'logged_in' not in st.session_state:
@@ -506,7 +392,7 @@ def clear_token(email):
         del st.session_state.reset_tokens[email]
 
 # ============================================
-# OCR FUNCTIONS
+# OCR
 # ============================================
 
 from ocr_app import load_ocr_model, predict_text
@@ -524,7 +410,7 @@ def logout():
     st.rerun()
 
 # ============================================
-# LOGIN PAGE (Styled like reference)
+# LOGIN PAGE
 # ============================================
 
 def login_page():
@@ -532,57 +418,49 @@ def login_page():
     
     # Header
     st.markdown("""
-    <div class="header-section">
-        <div class="logo-icon">📝</div>
-        <div class="main-title">Sinhala Handwritten OCR</div>
-        <div class="main-subtitle">Convert handwritten Sinhala documents to digital text with AI</div>
+    <div class="header">
+        <div class="header-icon">📝</div>
+        <div class="header-title">Sinhala Handwritten OCR</div>
+        <div class="header-subtitle">Convert handwritten Sinhala documents to digital text with AI</div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Features Row
+    # Features
     st.markdown("""
-    <div class="features-row">
-        <div class="feature-card">
+    <div class="features">
+        <div class="feature">
             <div class="feature-icon">🎯</div>
             <div class="feature-title">High Accuracy</div>
         </div>
-        <div class="feature-card">
+        <div class="feature">
             <div class="feature-icon">⚡</div>
             <div class="feature-title">Fast Processing</div>
         </div>
-        <div class="feature-card">
+        <div class="feature">
             <div class="feature-icon">🔒</div>
             <div class="feature-title">Secure</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Login Card
-    st.markdown('<div class="auth-wrapper">', unsafe_allow_html=True)
+    # Login Form
     st.markdown('<div class="auth-card">', unsafe_allow_html=True)
+    st.markdown('<div class="auth-title">Login please</div>', unsafe_allow_html=True)
+    st.markdown('<div class="auth-subtitle">Enter your details to continue</div>', unsafe_allow_html=True)
     
-    st.markdown("""
-    <div class="auth-header">
-        <div class="auth-icon">👋</div>
-        <div class="auth-title">Login please</div>
-        <div class="auth-subtitle">Enter your details to continue</div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    with st.form("login_form"):
-        email_username = st.text_input("", placeholder="Input your user ID or Email", key="login_input")
-        password = st.text_input("", type="password", placeholder="Input your password", key="login_password")
+    with st.form("login"):
+        email_user = st.text_input("", placeholder="Input your user ID or Email")
+        password = st.text_input("", type="password", placeholder="Input your password")
         
-        # Remember me & Forgot Password row
         col1, col2 = st.columns(2)
         with col1:
             st.checkbox("Remember me", key="remember")
         with col2:
-            st.markdown(f'<div style="text-align: right;"><a class="forgot-link" href="?forgot=true">Forgot Password?</a></div>', unsafe_allow_html=True)
+            st.markdown(f'<div style="text-align: right;"><a class="link" href="?forgot=true">Forgot Password?</a></div>', unsafe_allow_html=True)
         
         if st.form_submit_button("LOG IN"):
-            if email_username and password:
-                success, result = login_user(email_username, password)
+            if email_user and password:
+                success, result = login_user(email_user, password)
                 if success:
                     st.session_state.logged_in = True
                     st.session_state.username = result['username']
@@ -590,24 +468,16 @@ def login_page():
                     st.session_state.page = 'main'
                     st.rerun()
                 else:
-                    st.markdown(f'<div class="error-message">❌ {result}</div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="error">{result}</div>', unsafe_allow_html=True)
             else:
-                st.markdown('<div class="error-message">❌ Please fill all fields</div>', unsafe_allow_html=True)
+                st.markdown('<div class="error">Please fill all fields</div>', unsafe_allow_html=True)
     
-    st.markdown('<div class="divider"><span>or</span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="divider">or</div>', unsafe_allow_html=True)
     
-    # Signup button
-    st.markdown(f'''
-    <div style="text-align: center;">
-        <p style="font-size: 0.8rem; color: {COLORS['text-light']};">Don't have an account?</p>
-    </div>
-    ''', unsafe_allow_html=True)
-    
-    if st.button("SIGNUP", key="signup_btn", use_container_width=True):
+    if st.button("SIGNUP", use_container_width=True):
         st.session_state.page = 'signup'
         st.rerun()
     
-    st.markdown('</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
     
     # Footer
@@ -615,100 +485,83 @@ def login_page():
     st.markdown('</div>', unsafe_allow_html=True)
 
 # ============================================
-# SIGNUP PAGE (Same Style)
+# SIGNUP PAGE
 # ============================================
 
 def signup_page():
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
     
     st.markdown("""
-    <div class="header-section">
-        <div class="logo-icon">📝</div>
-        <div class="main-title">Sinhala Handwritten OCR</div>
-        <div class="main-subtitle">Join us and start using Sinhala OCR technology</div>
+    <div class="header">
+        <div class="header-icon">📝</div>
+        <div class="header-title">Create Account</div>
+        <div class="header-subtitle">Join us and start using Sinhala OCR</div>
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown('<div class="auth-wrapper">', unsafe_allow_html=True)
     st.markdown('<div class="auth-card">', unsafe_allow_html=True)
+    st.markdown('<div class="auth-title">Sign Up</div>', unsafe_allow_html=True)
+    st.markdown('<div class="auth-subtitle">Enter your details to create account</div>', unsafe_allow_html=True)
     
-    st.markdown("""
-    <div class="auth-header">
-        <div class="auth-icon">✨</div>
-        <div class="auth-title">Welcome!</div>
-        <div class="auth-subtitle">Enter your details and start journey with us</div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    with st.form("signup_form"):
-        email = st.text_input("", placeholder="Email Address", key="signup_email")
-        username = st.text_input("", placeholder="Username", key="signup_username")
-        password = st.text_input("", type="password", placeholder="Password (min 6 characters)", key="signup_password")
-        confirm = st.text_input("", type="password", placeholder="Confirm Password", key="signup_confirm")
+    with st.form("signup"):
+        email = st.text_input("", placeholder="Email Address")
+        username = st.text_input("", placeholder="Username")
+        password = st.text_input("", type="password", placeholder="Password (min 6)")
+        confirm = st.text_input("", type="password", placeholder="Confirm Password")
         
         if st.form_submit_button("SIGNUP"):
             if not email or not username or not password:
-                st.markdown('<div class="error-message">❌ Please fill all fields</div>', unsafe_allow_html=True)
+                st.markdown('<div class="error">Please fill all fields</div>', unsafe_allow_html=True)
             elif password != confirm:
-                st.markdown('<div class="error-message">❌ Passwords do not match</div>', unsafe_allow_html=True)
+                st.markdown('<div class="error">Passwords do not match</div>', unsafe_allow_html=True)
             else:
                 success, msg = register_user(email, username, password)
                 if success:
-                    # Auto login after signup
-                    login_success, login_result = login_user(username, password)
+                    login_success, result = login_user(username, password)
                     if login_success:
                         st.session_state.logged_in = True
-                        st.session_state.username = login_result['username']
-                        st.session_state.email = login_result['email']
+                        st.session_state.username = result['username']
+                        st.session_state.email = result['email']
                         st.session_state.page = 'main'
                         st.rerun()
                     else:
-                        st.markdown(f'<div class="success-message">✅ {msg}. Please login.</div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="success">{msg}. Please login.</div>', unsafe_allow_html=True)
                         st.session_state.page = 'login'
                         st.rerun()
                 else:
-                    st.markdown(f'<div class="error-message">❌ {msg}</div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="error">{msg}</div>', unsafe_allow_html=True)
     
-    st.markdown("---")
     if st.button("← Back to Login", use_container_width=True):
         st.session_state.page = 'login'
         st.rerun()
     
     st.markdown('</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-    
     st.markdown('<div class="footer">© 2026 Sinhala Handwritten OCR</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # ============================================
-# FORGOT PASSWORD PAGE (Same Style)
+# FORGOT PASSWORD PAGE
 # ============================================
 
 def forgot_password_page():
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
     
     st.markdown("""
-    <div class="header-section">
-        <div class="logo-icon">🔐</div>
-        <div class="main-title">Reset Password</div>
-        <div class="main-subtitle">We'll help you get back into your account</div>
+    <div class="header">
+        <div class="header-icon">🔐</div>
+        <div class="header-title">Reset Password</div>
+        <div class="header-subtitle">We'll help you get back into your account</div>
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown('<div class="auth-wrapper">', unsafe_allow_html=True)
     st.markdown('<div class="auth-card">', unsafe_allow_html=True)
     
     if st.session_state.reset_step == 'request':
-        st.markdown("""
-        <div class="auth-header">
-            <div class="auth-icon">📧</div>
-            <div class="auth-title">Forgot Password?</div>
-            <div class="auth-subtitle">Enter your email to receive a reset code</div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown('<div class="auth-title">Forgot Password?</div>', unsafe_allow_html=True)
+        st.markdown('<div class="auth-subtitle">Enter your email to receive reset code</div>', unsafe_allow_html=True)
         
-        with st.form("reset_request"):
-            email = st.text_input("", placeholder="Email Address", key="reset_email_input")
+        with st.form("reset_req"):
+            email = st.text_input("", placeholder="Email Address")
             
             if st.form_submit_button("Send Reset Code"):
                 if email:
@@ -716,52 +569,46 @@ def forgot_password_page():
                         token = generate_token(email)
                         st.session_state.reset_email = email
                         st.session_state.reset_step = 'verify'
-                        st.markdown(f'<div class="success-message">✅ Reset code: <strong>{token}</strong><br>Please use this code to reset your password.</div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="success">✅ Reset code: <strong>{token}</strong></div>', unsafe_allow_html=True)
                         st.rerun()
                     else:
-                        st.markdown('<div class="error-message">❌ Email not found</div>', unsafe_allow_html=True)
+                        st.markdown('<div class="error">Email not found</div>', unsafe_allow_html=True)
                 else:
-                    st.markdown('<div class="error-message">❌ Please enter your email</div>', unsafe_allow_html=True)
+                    st.markdown('<div class="error">Please enter email</div>', unsafe_allow_html=True)
     
     elif st.session_state.reset_step == 'verify':
-        st.markdown(f"""
-        <div class="auth-header">
-            <div class="auth-icon">🔐</div>
-            <div class="auth-title">Reset Password</div>
-            <div class="auth-subtitle">Email: {st.session_state.reset_email}</div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(f'<div class="auth-title">Reset Password</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="auth-subtitle">Email: {st.session_state.reset_email}</div>', unsafe_allow_html=True)
         
         with st.form("reset_verify"):
-            code = st.text_input("", placeholder="6-Digit Code", key="reset_code")
-            new_password = st.text_input("", type="password", placeholder="New Password (min 6)", key="reset_new")
-            confirm = st.text_input("", type="password", placeholder="Confirm Password", key="reset_confirm")
+            code = st.text_input("", placeholder="6-Digit Code")
+            new_password = st.text_input("", type="password", placeholder="New Password (min 6)")
+            confirm = st.text_input("", type="password", placeholder="Confirm Password")
             
             if st.form_submit_button("Reset Password"):
                 if code and new_password and confirm:
                     if new_password != confirm:
-                        st.markdown('<div class="error-message">❌ Passwords do not match</div>', unsafe_allow_html=True)
+                        st.markdown('<div class="error">Passwords do not match</div>', unsafe_allow_html=True)
                     elif len(new_password) < 6:
-                        st.markdown('<div class="error-message">❌ Password must be at least 6 characters</div>', unsafe_allow_html=True)
+                        st.markdown('<div class="error">Password min 6 characters</div>', unsafe_allow_html=True)
                     else:
                         if verify_token(st.session_state.reset_email, code):
-                            success, msg = reset_user_password(st.session_state.reset_email, new_password)
+                            success, msg = reset_password(st.session_state.reset_email, new_password)
                             if success:
                                 clear_token(st.session_state.reset_email)
-                                st.markdown(f'<div class="success-message">✅ {msg}</div>', unsafe_allow_html=True)
+                                st.markdown(f'<div class="success">{msg}</div>', unsafe_allow_html=True)
                                 st.session_state.reset_step = 'request'
                                 st.session_state.reset_email = None
                                 time.sleep(1)
                                 st.session_state.page = 'login'
                                 st.rerun()
                             else:
-                                st.markdown(f'<div class="error-message">❌ {msg}</div>', unsafe_allow_html=True)
+                                st.markdown(f'<div class="error">{msg}</div>', unsafe_allow_html=True)
                         else:
-                            st.markdown('<div class="error-message">❌ Invalid or expired code</div>', unsafe_allow_html=True)
+                            st.markdown('<div class="error">Invalid or expired code</div>', unsafe_allow_html=True)
                 else:
-                    st.markdown('<div class="error-message">❌ Please fill all fields</div>', unsafe_allow_html=True)
+                    st.markdown('<div class="error">Please fill all fields</div>', unsafe_allow_html=True)
     
-    st.markdown("---")
     if st.button("← Back to Login", use_container_width=True):
         st.session_state.reset_step = 'request'
         st.session_state.reset_email = None
@@ -769,39 +616,37 @@ def forgot_password_page():
         st.rerun()
     
     st.markdown('</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-    
     st.markdown('<div class="footer">© 2026 Sinhala Handwritten OCR</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # ============================================
-# MAIN DASHBOARD (Same Style)
+# MAIN DASHBOARD
 # ============================================
 
 def main_app():
     # Logout button
-    st.markdown(f'<button onclick="window.location.href=\'?logout=true\'" class="logout-btn">🚪 Logout</button>', unsafe_allow_html=True)
+    st.markdown(f'<button onclick="window.location.href=\'?logout=true\'" class="logout">🚪 Logout</button>', unsafe_allow_html=True)
     
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
     
-    # Welcome Card
+    # Welcome
     st.markdown(f"""
-    <div class="welcome-card">
-        <h2 style="font-size: 1.3rem; margin-bottom: 0.25rem;">👋 Welcome back, {st.session_state.username}!</h2>
-        <p style="font-size: 0.85rem; opacity: 0.9;">Upload a handwritten Sinhala image to get digital text</p>
+    <div class="welcome">
+        <h2 style="font-size: 1.2rem;">👋 Welcome, {st.session_state.username}!</h2>
+        <p style="font-size: 0.8rem;">Upload a handwritten Sinhala image to get digital text</p>
     </div>
     """, unsafe_allow_html=True)
     
     # Stats
     st.markdown("""
-    <div class="stats-grid">
-        <div class="stat-card"><div class="stat-number">85%+</div><div style="font-size: 0.7rem;">Accuracy</div></div>
-        <div class="stat-card"><div class="stat-number">771</div><div style="font-size: 0.7rem;">Samples</div></div>
-        <div class="stat-card"><div class="stat-number">104</div><div style="font-size: 0.7rem;">Characters</div></div>
+    <div class="stats">
+        <div class="stat"><div class="stat-number">85%+</div><div>Accuracy</div></div>
+        <div class="stat"><div class="stat-number">771</div><div>Samples</div></div>
+        <div class="stat"><div class="stat-number">104</div><div>Characters</div></div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Load OCR Model
+    # Load Model
     with st.spinner("Loading OCR model..."):
         processor, model, device = load_ocr_model()
     
@@ -809,7 +654,7 @@ def main_app():
         st.error("Failed to load OCR model")
         return
     
-    # Main Content
+    # Main
     col1, col2 = st.columns(2)
     
     with col1:
@@ -826,27 +671,27 @@ def main_app():
                     if text:
                         st.session_state.predicted_text = text
                         st.session_state.prediction_time = datetime.now()
-                        st.markdown('<div class="success-message">✅ Recognition complete!</div>', unsafe_allow_html=True)
+                        st.markdown('<div class="success">✅ Recognition complete!</div>', unsafe_allow_html=True)
                     else:
-                        st.markdown(f'<div class="error-message">❌ {error}</div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="error">❌ {error}</div>', unsafe_allow_html=True)
     
     with col2:
         st.markdown('<div class="section-title">📝 Result</div>', unsafe_allow_html=True)
         
         if st.session_state.predicted_text:
             st.markdown(f"""
-            <div class="result-card">
+            <div class="result">
                 <strong>Recognized Text:</strong><br><br>
                 {st.session_state.predicted_text}
             </div>
             """, unsafe_allow_html=True)
-            st.caption(f"Time: {st.session_state.prediction_time.strftime('%Y-%m-%d %H:%M:%S')}")
+            st.caption(f"Time: {st.session_state.prediction_time.strftime('%H:%M:%S')}")
             
             txt_data = io.BytesIO(st.session_state.predicted_text.encode('utf-8'))
             st.download_button("💾 Download TXT", data=txt_data, file_name="ocr_result.txt", use_container_width=True)
         else:
             st.markdown("""
-            <div class="result-card">
+            <div class="result">
                 <strong>No Result Yet</strong><br><br>
                 <span style="color: #888;">Upload an image and click "Recognize Text"</span>
             </div>
@@ -860,16 +705,13 @@ def main_app():
 # ROUTING
 # ============================================
 
-# Handle forgot password link
 if 'forgot' in st.query_params:
     st.session_state.page = 'forgot_password'
     st.rerun()
 
-# Handle logout
 if 'logout' in st.query_params:
     logout()
 
-# Route to appropriate page
 if st.session_state.logged_in and st.session_state.page == 'main':
     main_app()
 elif st.session_state.page == 'login':
