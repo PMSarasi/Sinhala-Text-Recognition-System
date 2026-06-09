@@ -1,5 +1,5 @@
 # SINHALA HANDWRITTEN OCR
-# Modern Premium Design - Clean & Attractive
+# Premium Clean Design - Matching Reference Style
 # ============================================
 
 import streamlit as st
@@ -23,26 +23,24 @@ st.set_page_config(
 )
 
 # ============================================
-# COLORS - Premium Color Palette
+# COLORS - Clean Professional Palette
 # ============================================
 
 PRIMARY = "#FF6B35"
 PRIMARY_DARK = "#E85D2C"
 PRIMARY_LIGHT = "#FF8A5C"
-SECONDARY = "#2D3436"
-ACCENT = "#00B4D8"
-BG_DARK = "#1a1a2e"
-BG_LIGHT = "#0f0f1a"
-CARD_BG = "#16213e"
-TEXT_LIGHT = "#FFFFFF"
-TEXT_MUTED = "#A0A0B0"
-WHITE = "#FFFFFF"
-ERROR = "#FF4757"
-SUCCESS = "#00D26A"
-BORDER = "rgba(255,255,255,0.08)"
+SECONDARY = "#4A5568"
+BG_WHITE = "#FFFFFF"
+BG_GRAY = "#F7FAFC"
+TEXT_DARK = "#1A202C"
+TEXT_GRAY = "#718096"
+TEXT_LIGHT = "#A0AEC0"
+SUCCESS = "#38A169"
+ERROR = "#E53E3E"
+BORDER = "#E2E8F0"
 
 # ============================================
-# CSS - Premium Modern Design
+# CSS - Clean Modern Design (Matching Reference)
 # ============================================
 
 st.markdown(f"""
@@ -54,7 +52,7 @@ st.markdown(f"""
     
     /* Main background */
     .stApp {{
-        background: linear-gradient(135deg, {BG_DARK} 0%, {BG_LIGHT} 100%) !important;
+        background: linear-gradient(135deg, {BG_GRAY} 0%, {BG_WHITE} 100%) !important;
         min-height: 100vh;
     }}
     
@@ -70,84 +68,34 @@ st.markdown(f"""
         flex-direction: column;
     }}
     
-    /* Hero Section */
-    .hero-section {{
+    /* Header Section */
+    .header-section {{
         text-align: center;
-        padding: 3rem 2rem 1rem 2rem;
+        padding: 2rem 2rem 0 2rem;
     }}
     
-    .logo-badge {{
-        display: inline-block;
-        background: rgba(255, 107, 53, 0.15);
-        padding: 0.5rem 1rem;
-        border-radius: 50px;
-        font-size: 0.85rem;
-        color: {PRIMARY};
-        margin-bottom: 1.5rem;
-        backdrop-filter: blur(10px);
+    .logo {{
+        font-size: 3rem;
+        margin-bottom: 1rem;
     }}
     
     .main-title {{
-        font-size: 3.5rem;
-        font-weight: 800;
-        background: linear-gradient(135deg, {WHITE} 0%, {PRIMARY} 50%, {PRIMARY_LIGHT} 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: {TEXT_DARK};
+        margin-bottom: 0.5rem;
         letter-spacing: -0.5px;
     }}
     
     .main-subtitle {{
-        font-size: 1.1rem;
-        color: {TEXT_MUTED};
-        max-width: 600px;
+        font-size: 1rem;
+        color: {TEXT_GRAY};
+        max-width: 500px;
         margin: 0 auto;
     }}
     
-    /* Feature Cards */
-    .feature-grid {{
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        padding: 2rem;
-        flex-wrap: wrap;
-    }}
-    
-    .feature-card {{
-        background: rgba(22, 33, 62, 0.8);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 1.5rem;
-        text-align: center;
-        min-width: 180px;
-        border: 1px solid {BORDER};
-        transition: all 0.3s ease;
-    }}
-    
-    .feature-card:hover {{
-        transform: translateY(-5px);
-        border-color: {PRIMARY};
-        background: rgba(22, 33, 62, 0.95);
-    }}
-    
-    .feature-icon {{
-        font-size: 2rem;
-        margin-bottom: 0.75rem;
-    }}
-    
-    .feature-title {{
-        font-weight: 600;
-        color: {WHITE};
-        margin-bottom: 0.25rem;
-    }}
-    
-    .feature-desc {{
-        font-size: 0.8rem;
-        color: {TEXT_MUTED};
-    }}
-    
-    /* Auth Container - Premium Card */
-    .auth-container {{
+    /* Auth Container */
+    .auth-wrapper {{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -156,25 +104,13 @@ st.markdown(f"""
     }}
     
     .auth-card {{
-        background: {CARD_BG};
-        border-radius: 32px;
+        background: {BG_WHITE};
+        border-radius: 24px;
         padding: 2.5rem;
-        max-width: 450px;
+        max-width: 440px;
         width: 100%;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         border: 1px solid {BORDER};
-        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-        animation: fadeInUp 0.6s ease;
-    }}
-    
-    @keyframes fadeInUp {{
-        from {{
-            opacity: 0;
-            transform: translateY(30px);
-        }}
-        to {{
-            opacity: 1;
-            transform: translateY(0);
-        }}
     }}
     
     .auth-header {{
@@ -183,69 +119,70 @@ st.markdown(f"""
     }}
     
     .auth-title {{
-        font-size: 1.8rem;
+        font-size: 1.75rem;
         font-weight: 700;
-        color: {WHITE};
+        color: {TEXT_DARK};
         margin-bottom: 0.5rem;
     }}
     
     .auth-subtitle {{
         font-size: 0.9rem;
-        color: {TEXT_MUTED};
+        color: {TEXT_GRAY};
     }}
     
-    /* Input Styling */
+    /* Input Fields - Clean Style */
+    .input-label {{
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: {TEXT_DARK};
+        margin-bottom: 0.5rem;
+        display: block;
+    }}
+    
     .stTextInput > div > div > input {{
-        background: rgba(255,255,255,0.05) !important;
+        background: {BG_WHITE} !important;
         border: 1px solid {BORDER} !important;
-        border-radius: 14px !important;
+        border-radius: 12px !important;
         padding: 12px 16px !important;
-        color: {WHITE} !important;
+        color: {TEXT_DARK} !important;
         font-size: 0.95rem !important;
         transition: all 0.3s ease !important;
+        margin-bottom: 1rem;
     }}
     
     .stTextInput > div > div > input:focus {{
         border-color: {PRIMARY} !important;
         box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1) !important;
-        background: rgba(255,255,255,0.08) !important;
+        outline: none !important;
     }}
     
     .stTextInput > div > div > input::placeholder {{
-        color: {TEXT_MUTED} !important;
+        color: {TEXT_LIGHT} !important;
     }}
     
     /* Button Styling */
     .stButton > button {{
         width: 100%;
-        background: linear-gradient(135deg, {PRIMARY}, {PRIMARY_DARK}) !important;
-        color: {WHITE} !important;
+        background: {PRIMARY} !important;
+        color: white !important;
         font-weight: 600 !important;
         border: none !important;
-        border-radius: 14px !important;
+        border-radius: 12px !important;
         padding: 12px !important;
         font-size: 1rem !important;
         cursor: pointer !important;
         transition: all 0.3s ease !important;
+        margin-top: 0.5rem;
     }}
     
     .stButton > button:hover {{
-        transform: translateY(-2px) !important;
-        box-shadow: 0 10px 25px -5px rgba(255, 107, 53, 0.4) !important;
+        background: {PRIMARY_DARK} !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
     }}
     
-    .secondary-btn > button {{
-        background: transparent !important;
-        border: 1px solid {BORDER} !important;
-        color: {TEXT_MUTED} !important;
-    }}
-    
-    .secondary-btn > button:hover {{
-        border-color: {PRIMARY} !important;
-        color: {PRIMARY} !important;
-        background: rgba(255, 107, 53, 0.05) !important;
-        transform: none !important;
-        box-shadow: none !important;
+    .stButton > button:active {{
+        transform: translateY(0);
     }}
     
     /* Divider */
@@ -254,7 +191,7 @@ st.markdown(f"""
         align-items: center;
         text-align: center;
         margin: 1.5rem 0;
-        color: {TEXT_MUTED};
+        color: {TEXT_GRAY};
         font-size: 0.8rem;
     }}
     
@@ -269,29 +206,36 @@ st.markdown(f"""
         margin: 0 1rem;
     }}
     
-    /* Link Row */
-    .link-row {{
+    /* Link Buttons Row */
+    .link-buttons {{
         display: flex;
-        justify-content: space-between;
+        gap: 1rem;
         margin-top: 1rem;
-        font-size: 0.85rem;
     }}
     
-    .link-row a {{
-        color: {PRIMARY};
-        text-decoration: none;
-        cursor: pointer;
+    .link-buttons .stButton {{
+        flex: 1;
     }}
     
-    .link-row a:hover {{
-        text-decoration: underline;
+    .link-buttons .stButton > button {{
+        background: transparent !important;
+        color: {TEXT_GRAY} !important;
+        border: 1px solid {BORDER} !important;
+        box-shadow: none !important;
+    }}
+    
+    .link-buttons .stButton > button:hover {{
+        border-color: {PRIMARY} !important;
+        color: {PRIMARY} !important;
+        background: transparent !important;
+        transform: none !important;
     }}
     
     /* Footer */
     .footer {{
         text-align: center;
         padding: 2rem;
-        color: {TEXT_MUTED};
+        color: {TEXT_GRAY};
         font-size: 0.75rem;
         border-top: 1px solid {BORDER};
         margin-top: auto;
@@ -299,8 +243,8 @@ st.markdown(f"""
     
     /* Messages */
     .success-msg {{
-        background: rgba(0, 210, 106, 0.1);
-        border: 1px solid rgba(0, 210, 106, 0.3);
+        background: #F0FFF4;
+        border: 1px solid #C6F6D5;
         color: {SUCCESS};
         padding: 12px 16px;
         border-radius: 12px;
@@ -309,8 +253,8 @@ st.markdown(f"""
     }}
     
     .error-msg {{
-        background: rgba(255, 71, 87, 0.1);
-        border: 1px solid rgba(255, 71, 87, 0.3);
+        background: #FFF5F5;
+        border: 1px solid #FED7D7;
         color: {ERROR};
         padding: 12px 16px;
         border-radius: 12px;
@@ -318,44 +262,17 @@ st.markdown(f"""
         font-size: 0.9rem;
     }}
     
-    /* Main App Styles */
-    .welcome-header {{
-        background: linear-gradient(135deg, {CARD_BG}, rgba(22, 33, 62, 0.8));
-        border-radius: 24px;
-        padding: 2rem;
-        margin-bottom: 2rem;
-        border: 1px solid {BORDER};
+    /* Checkbox styling */
+    .stCheckbox {{
+        margin: 1rem 0;
     }}
     
-    .stat-card {{
-        background: {CARD_BG};
-        border-radius: 20px;
-        padding: 1.5rem;
-        text-align: center;
-        border: 1px solid {BORDER};
-        transition: all 0.3s ease;
+    .stCheckbox label {{
+        color: {TEXT_GRAY};
+        font-size: 0.85rem;
     }}
     
-    .stat-card:hover {{
-        transform: translateY(-3px);
-        border-color: {PRIMARY};
-    }}
-    
-    .stat-number {{
-        font-size: 2rem;
-        font-weight: 700;
-        color: {PRIMARY};
-    }}
-    
-    .glass-card {{
-        background: {CARD_BG};
-        border-radius: 24px;
-        padding: 1.5rem;
-        border: 1px solid {BORDER};
-        height: 100%;
-    }}
-    
-    /* Remove any white boxes */
+    /* Hide form backgrounds */
     div[data-testid="stForm"] {{
         background: transparent !important;
         border: none !important;
@@ -366,47 +283,72 @@ st.markdown(f"""
         background: transparent !important;
     }}
     
-    /* Logout button */
-    .logout-btn {{
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: {CARD_BG} !important;
-        color: {WHITE} !important;
-        border: 1px solid {BORDER} !important;
-        border-radius: 12px !important;
-        padding: 8px 20px !important;
-        font-size: 0.85rem !important;
-        cursor: pointer !important;
-        z-index: 1000 !important;
-        transition: all 0.3s ease !important;
+    /* Main App Styles */
+    .main-header {{
+        background: {BG_WHITE};
+        border-bottom: 1px solid {BORDER};
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }}
     
-    .logout-btn:hover {{
-        border-color: {PRIMARY} !important;
-        color: {PRIMARY} !important;
+    .welcome-card {{
+        background: linear-gradient(135deg, {PRIMARY} 0%, {PRIMARY_DARK} 100%);
+        border-radius: 20px;
+        padding: 2rem;
+        color: white;
+        margin-bottom: 2rem;
     }}
     
-    /* Hide Streamlit default elements */
-    [data-testid="stVerticalBlock"] > div {{
-        background: transparent !important;
+    .stat-grid {{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }}
+    
+    .stat-item {{
+        background: {BG_WHITE};
+        border-radius: 16px;
+        padding: 1.25rem;
+        text-align: center;
+        border: 1px solid {BORDER};
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }}
+    
+    .stat-number {{
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: {PRIMARY};
+    }}
+    
+    .glass-card {{
+        background: {BG_WHITE};
+        border-radius: 20px;
+        padding: 1.5rem;
+        border: 1px solid {BORDER};
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        height: 100%;
+    }}
+    
+    .result-area {{
+        background: #F7FAFC;
+        border-radius: 16px;
+        padding: 1.5rem;
+        border-left: 4px solid {PRIMARY};
     }}
     
     /* Responsive */
     @media (max-width: 768px) {{
-        .main-title {{
-            font-size: 2rem;
-        }}
         .auth-card {{
             padding: 1.5rem;
         }}
-        .feature-grid {{
-            flex-direction: column;
-            align-items: center;
+        .main-title {{
+            font-size: 1.75rem;
         }}
-        .feature-card {{
-            width: 100%;
-            max-width: 300px;
+        .stat-grid {{
+            grid-template-columns: repeat(2, 1fr);
         }}
     }}
 </style>
@@ -502,6 +444,8 @@ if 'predicted_text' not in st.session_state:
     st.session_state.predicted_text = None
 if 'prediction_time' not in st.session_state:
     st.session_state.prediction_time = None
+if 'remember_me' not in st.session_state:
+    st.session_state.remember_me = False
 
 # ============================================
 # LOGOUT
@@ -516,44 +460,23 @@ def logout():
     st.rerun()
 
 # ============================================
-# LOGIN PAGE
+# LOGIN PAGE - Clean & Professional
 # ============================================
 
 def login_page():
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
     
-    # Hero Section
+    # Header
     st.markdown("""
-    <div class="hero-section">
-        <div class="logo-badge">✨ AI-POWERED OCR</div>
+    <div class="header-section">
+        <div class="logo">📝</div>
         <div class="main-title">Sinhala Handwritten OCR</div>
-        <div class="main-subtitle">Transform handwritten Sinhala documents into digital text with cutting-edge AI technology</div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Features
-    st.markdown("""
-    <div class="feature-grid">
-        <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <div class="feature-title">85%+ Accuracy</div>
-            <div class="feature-desc">Advanced deep learning model</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <div class="feature-title">Real-time</div>
-            <div class="feature-desc">Instant recognition</div>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <div class="feature-title">Secure</div>
-            <div class="feature-desc">Your privacy matters</div>
-        </div>
+        <div class="main-subtitle">Transform handwritten Sinhala into digital text</div>
     </div>
     """, unsafe_allow_html=True)
     
     # Auth Card
-    st.markdown('<div class="auth-container">', unsafe_allow_html=True)
+    st.markdown('<div class="auth-wrapper">', unsafe_allow_html=True)
     st.markdown('<div class="auth-card">', unsafe_allow_html=True)
     
     st.markdown("""
@@ -563,9 +486,17 @@ def login_page():
     </div>
     """, unsafe_allow_html=True)
     
-    email_or_user = st.text_input("", placeholder="Email or Username", key="login_email", label_visibility="collapsed")
-    password = st.text_input("", type="password", placeholder="Password", key="login_pass", label_visibility="collapsed")
+    # Input fields with labels
+    st.markdown('<label class="input-label">Email or Username</label>', unsafe_allow_html=True)
+    email_or_user = st.text_input("", placeholder="Enter your email or username", key="login_email", label_visibility="collapsed")
     
+    st.markdown('<label class="input-label">Password</label>', unsafe_allow_html=True)
+    password = st.text_input("", type="password", placeholder="Enter your password", key="login_pass", label_visibility="collapsed")
+    
+    # Remember me checkbox
+    remember = st.checkbox("Remember me", key="remember_me")
+    
+    # Sign In button
     if st.button("Sign In", key="signin_btn"):
         if email_or_user and password:
             success, result = login_user(email_or_user, password)
@@ -573,6 +504,7 @@ def login_page():
                 st.session_state.logged_in = True
                 st.session_state.username = result['username']
                 st.session_state.email = result['email']
+                st.session_state.remember_me = remember
                 st.session_state.page = 'main'
                 st.rerun()
             else:
@@ -580,8 +512,10 @@ def login_page():
         else:
             st.markdown('<div class="error-msg">❌ Please fill in all fields</div>', unsafe_allow_html=True)
     
+    # Divider
     st.markdown('<div class="divider"><span>or</span></div>', unsafe_allow_html=True)
     
+    # Link buttons
     col1, col2 = st.columns(2)
     with col1:
         if st.button("Create Account", key="create_acc", use_container_width=True):
@@ -595,6 +529,7 @@ def login_page():
     st.markdown('</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
     
+    # Footer
     st.markdown('<div class="footer">© 2026 Sinhala Handwritten OCR | Powered by TrOCR</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -606,27 +541,34 @@ def signup_page():
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
     
     st.markdown("""
-    <div class="hero-section">
-        <div class="logo-badge">✨ JOIN US</div>
-        <div class="main-title">Get Started</div>
-        <div class="main-subtitle">Create your account and start your OCR journey</div>
+    <div class="header-section">
+        <div class="logo">📝</div>
+        <div class="main-title">Create Account</div>
+        <div class="main-subtitle">Join us and start your OCR journey</div>
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown('<div class="auth-container">', unsafe_allow_html=True)
+    st.markdown('<div class="auth-wrapper">', unsafe_allow_html=True)
     st.markdown('<div class="auth-card">', unsafe_allow_html=True)
     
     st.markdown("""
     <div class="auth-header">
-        <div class="auth-title">Create Account</div>
-        <div class="auth-subtitle">Join our community today</div>
+        <div class="auth-title">Get Started</div>
+        <div class="auth-subtitle">Create your free account</div>
     </div>
     """, unsafe_allow_html=True)
     
-    email = st.text_input("", placeholder="Email Address", key="signup_email", label_visibility="collapsed")
-    username = st.text_input("", placeholder="Username", key="signup_user", label_visibility="collapsed")
-    password = st.text_input("", type="password", placeholder="Password (min 6 characters)", key="signup_pass", label_visibility="collapsed")
-    confirm = st.text_input("", type="password", placeholder="Confirm Password", key="signup_confirm", label_visibility="collapsed")
+    st.markdown('<label class="input-label">Email Address</label>', unsafe_allow_html=True)
+    email = st.text_input("", placeholder="Enter your email", key="signup_email", label_visibility="collapsed")
+    
+    st.markdown('<label class="input-label">Username</label>', unsafe_allow_html=True)
+    username = st.text_input("", placeholder="Choose a username", key="signup_user", label_visibility="collapsed")
+    
+    st.markdown('<label class="input-label">Password</label>', unsafe_allow_html=True)
+    password = st.text_input("", type="password", placeholder="Create a password (min 6 characters)", key="signup_pass", label_visibility="collapsed")
+    
+    st.markdown('<label class="input-label">Confirm Password</label>', unsafe_allow_html=True)
+    confirm = st.text_input("", type="password", placeholder="Confirm your password", key="signup_confirm", label_visibility="collapsed")
     
     if st.button("Create Account", key="create_btn"):
         if not email or not username or not password:
@@ -647,7 +589,7 @@ def signup_page():
             else:
                 st.markdown(f'<div class="error-msg">❌ {msg}</div>', unsafe_allow_html=True)
     
-    st.markdown('<div class="divider"><span>already have an account?</span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="divider"><span>Already have an account?</span></div>', unsafe_allow_html=True)
     
     if st.button("← Back to Login", key="back_login", use_container_width=True):
         st.session_state.page = 'login'
@@ -660,33 +602,38 @@ def signup_page():
     st.markdown('</div>', unsafe_allow_html=True)
 
 # ============================================
-# FORGOT PASSWORD PAGE - Direct reset without email code
+# FORGOT PASSWORD PAGE
 # ============================================
 
 def forgot_password_page():
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
     
     st.markdown("""
-    <div class="hero-section">
-        <div class="logo-badge">🔐 SECURITY</div>
+    <div class="header-section">
+        <div class="logo">🔐</div>
         <div class="main-title">Reset Password</div>
-        <div class="main-subtitle">Enter your email and create a new password</div>
+        <div class="main-subtitle">We'll help you get back in</div>
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown('<div class="auth-container">', unsafe_allow_html=True)
+    st.markdown('<div class="auth-wrapper">', unsafe_allow_html=True)
     st.markdown('<div class="auth-card">', unsafe_allow_html=True)
     
     st.markdown("""
     <div class="auth-header">
         <div class="auth-title">Create New Password</div>
-        <div class="auth-subtitle">We'll verify your email and reset your password</div>
+        <div class="auth-subtitle">Enter your email and new password</div>
     </div>
     """, unsafe_allow_html=True)
     
-    email = st.text_input("", placeholder="Email Address", key="reset_email", label_visibility="collapsed")
-    new_password = st.text_input("", type="password", placeholder="New Password (min 6 characters)", key="new_pass", label_visibility="collapsed")
-    confirm_password = st.text_input("", type="password", placeholder="Confirm New Password", key="confirm_pass", label_visibility="collapsed")
+    st.markdown('<label class="input-label">Email Address</label>', unsafe_allow_html=True)
+    email = st.text_input("", placeholder="Enter your registered email", key="reset_email", label_visibility="collapsed")
+    
+    st.markdown('<label class="input-label">New Password</label>', unsafe_allow_html=True)
+    new_password = st.text_input("", type="password", placeholder="Create new password (min 6 characters)", key="new_pass", label_visibility="collapsed")
+    
+    st.markdown('<label class="input-label">Confirm New Password</label>', unsafe_allow_html=True)
+    confirm_password = st.text_input("", type="password", placeholder="Confirm your new password", key="confirm_pass", label_visibility="collapsed")
     
     if st.button("Reset Password", key="reset_btn"):
         if not email or not new_password or not confirm_password:
@@ -708,7 +655,7 @@ def forgot_password_page():
             else:
                 st.markdown('<div class="error-msg">❌ Email not found in our system</div>', unsafe_allow_html=True)
     
-    st.markdown('<div class="divider"><span>remember your password?</span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="divider"><span>Remember your password?</span></div>', unsafe_allow_html=True)
     
     if st.button("← Back to Login", key="back_login_reset", use_container_width=True):
         st.session_state.page = 'login'
@@ -725,61 +672,49 @@ def forgot_password_page():
 # ============================================
 
 def main_app():
-    # Logout button
-    col1, col2, col3 = st.columns([8, 1, 1])
-    with col3:
-        if st.button("🚪 Logout", key="logout_btn"):
-            logout()
-    
-    st.markdown('<div class="main-container">', unsafe_allow_html=True)
-    
-    # Welcome Banner
-    st.markdown(f"""
-    <div class="welcome-header">
-        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-            <div style="flex: 1;">
-                <div class="logo-badge" style="display: inline-block;">👋 WELCOME BACK</div>
-                <h2 style="color: white; margin: 0.5rem 0;">{st.session_state.username}</h2>
-                <p style="color: #A0A0B0; margin: 0;">Ready to convert your handwritten documents? Upload an image below.</p>
-            </div>
-            <div style="text-align: center; background: rgba(255,107,53,0.1); padding: 1rem 1.5rem; border-radius: 20px;">
-                <div style="font-size: 2rem;">📝</div>
-                <div style="color: #FF6B35; font-weight: 600;">AI Ready</div>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Stats Row
-    col1, col2, col3, col4 = st.columns(4)
+    # Header with logout
+    col1, col2 = st.columns([6, 1])
     with col1:
-        st.markdown("""
-        <div class="stat-card">
-            <div class="stat-number">85%+</div>
-            <div style="color: #A0A0B0;">Accuracy Rate</div>
+        st.markdown(f"""
+        <div style="padding: 1rem 0;">
+            <h1 style="color: #1A202C; font-size: 1.5rem;">📝 Sinhala Handwritten OCR</h1>
         </div>
         """, unsafe_allow_html=True)
     with col2:
-        st.markdown("""
-        <div class="stat-card">
+        if st.button("🚪 Logout", key="logout_btn"):
+            logout()
+    
+    st.markdown('<div class="main-container" style="padding: 0 2rem;">', unsafe_allow_html=True)
+    
+    # Welcome Card
+    st.markdown(f"""
+    <div class="welcome-card">
+        <h2 style="margin: 0 0 0.5rem 0;">👋 Welcome back, {st.session_state.username}!</h2>
+        <p style="margin: 0; opacity: 0.9;">Ready to convert your handwritten Sinhala documents? Upload an image below.</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Stats Grid
+    st.markdown("""
+    <div class="stat-grid">
+        <div class="stat-item">
+            <div class="stat-number">85%+</div>
+            <div style="color: #718096;">Accuracy Rate</div>
+        </div>
+        <div class="stat-item">
             <div class="stat-number">771</div>
-            <div style="color: #A0A0B0;">Training Samples</div>
+            <div style="color: #718096;">Training Samples</div>
         </div>
-        """, unsafe_allow_html=True)
-    with col3:
-        st.markdown("""
-        <div class="stat-card">
+        <div class="stat-item">
             <div class="stat-number">104</div>
-            <div style="color: #A0A0B0;">Characters</div>
+            <div style="color: #718096;">Characters</div>
         </div>
-        """, unsafe_allow_html=True)
-    with col4:
-        st.markdown("""
-        <div class="stat-card">
+        <div class="stat-item">
             <div class="stat-number">⚡</div>
-            <div style="color: #A0A0B0;">Real-time</div>
+            <div style="color: #718096;">Real-time</div>
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
     
     # Load OCR Model
     try:
@@ -798,10 +733,8 @@ def main_app():
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("""
-        <div class="glass-card">
-            <h3 style="color: white; margin-bottom: 1rem;">📤 Upload Image</h3>
-        """, unsafe_allow_html=True)
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.markdown('<h3 style="color: #1A202C; margin-bottom: 1rem;">📤 Upload Image</h3>', unsafe_allow_html=True)
         
         uploaded = st.file_uploader(
             "Choose an image",
@@ -827,24 +760,22 @@ def main_app():
             st.markdown("""
             <div style="text-align: center; padding: 3rem 1rem;">
                 <div style="font-size: 4rem; margin-bottom: 1rem;">📸</div>
-                <p style="color: #A0A0B0;">Drag & drop or click to upload<br>a handwritten Sinhala image</p>
-                <p style="font-size: 0.8rem; color: #666;">Supports PNG, JPG, JPEG</p>
+                <p style="color: #718096;">Drag & drop or click to upload<br>a handwritten Sinhala image</p>
+                <p style="font-size: 0.8rem; color: #A0AEC0;">Supports PNG, JPG, JPEG</p>
             </div>
             """, unsafe_allow_html=True)
         
         st.markdown('</div>', unsafe_allow_html=True)
     
     with col2:
-        st.markdown("""
-        <div class="glass-card">
-            <h3 style="color: white; margin-bottom: 1rem;">📝 Recognized Text</h3>
-        """, unsafe_allow_html=True)
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.markdown('<h3 style="color: #1A202C; margin-bottom: 1rem;">📝 Recognized Text</h3>', unsafe_allow_html=True)
         
         if st.session_state.predicted_text:
             st.markdown(f"""
-            <div style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 1.5rem; border-left: 4px solid #FF6B35;">
+            <div class="result-area">
                 <strong style="color: #FF6B35;">Output:</strong>
-                <p style="color: white; margin-top: 1rem; line-height: 1.6; font-size: 1rem;">
+                <p style="color: #2D3748; margin-top: 1rem; line-height: 1.6;">
                     {st.session_state.predicted_text}
                 </p>
             </div>
@@ -864,8 +795,8 @@ def main_app():
             st.markdown("""
             <div style="text-align: center; padding: 3rem 1rem;">
                 <div style="font-size: 4rem; margin-bottom: 1rem;">📄</div>
-                <p style="color: #A0A0B0;">Upload an image and click<br>"Recognize Text" to see results</p>
-                <p style="font-size: 0.8rem; color: #666;">Results will appear here</p>
+                <p style="color: #718096;">Upload an image and click<br>"Recognize Text" to see results</p>
+                <p style="font-size: 0.8rem; color: #A0AEC0;">Results will appear here</p>
             </div>
             """, unsafe_allow_html=True)
         
