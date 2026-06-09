@@ -1,6 +1,5 @@
 # SINHALA HANDWRITTEN OCR
-# Premium Design - Warm Orange/Coral Theme
-# Complete Production Code
+# Premium Design - Side by Side Layout (Like First Screenshot)
 # ============================================
 
 import streamlit as st
@@ -24,14 +23,13 @@ st.set_page_config(
 )
 
 # ============================================
-# COLORS - Warm Orange/Coral Theme (From Reference Image)
+# COLORS - Warm Orange/Coral Theme
 # ============================================
 
 PRIMARY = "#FF6B35"
 PRIMARY_DARK = "#E85D2C"
 PRIMARY_LIGHT = "#FF8A5C"
 PRIMARY_ULTRA_LIGHT = "#FFF3EE"
-SECONDARY = "#2D3436"
 BG_WHITE = "#FFFFFF"
 BG_SOFT = "#F8F9FA"
 TEXT_DARK = "#1A1A2E"
@@ -43,7 +41,7 @@ BORDER = "#E8E8E8"
 INPUT_BG = "#F8F8F8"
 
 # ============================================
-# COMPLETE CSS - Matching Reference Image Design
+# COMPLETE CSS - Side by Side Layout
 # ============================================
 
 st.markdown(f"""
@@ -59,7 +57,7 @@ st.markdown(f"""
         max-width: 100% !important;
     }}
     
-    /* Main background - Soft gradient */
+    /* Main background */
     .stApp {{
         background: linear-gradient(135deg, #FFF5F0 0%, #FFFFFF 50%, #FFF8F3 100%) !important;
     }}
@@ -74,7 +72,7 @@ st.markdown(f"""
     }}
     
     .auth-card {{
-        max-width: 460px;
+        max-width: 500px;
         width: 100%;
         background: {BG_WHITE};
         border-radius: 32px;
@@ -141,25 +139,32 @@ st.markdown(f"""
         margin-bottom: 8px;
     }}
     
-    /* Custom Input with Icon Support */
-    .stTextInput {{
-        position: relative;
+    /* Two Column Layout for Email/Password */
+    .two-columns {{
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
     }}
     
+    .two-columns .form-group {{
+        flex: 1;
+        margin-bottom: 0;
+    }}
+    
+    /* Custom Input Styling */
     .stTextInput > div {{
         margin-bottom: 0 !important;
     }}
     
     .stTextInput > div > div > input {{
         width: 100% !important;
-        padding: 14px 16px 14px 44px !important;
+        padding: 14px 16px !important;
         font-size: 14px !important;
         border: 1.5px solid {BORDER} !important;
         border-radius: 14px !important;
         background: {INPUT_BG} !important;
         color: {TEXT_DARK} !important;
         transition: all 0.2s ease !important;
-        font-family: inherit !important;
     }}
     
     .stTextInput > div > div > input:focus {{
@@ -174,38 +179,16 @@ st.markdown(f"""
         font-size: 13px;
     }}
     
-    /* Add icons to inputs using pseudo-elements */
-    [data-testid="stTextInput"] {{
-        position: relative;
-    }}
-    
-    /* Email icon */
-    [data-testid="stTextInput"]:nth-of-type(1)::before {{
-        content: "✉️";
-        position: absolute;
-        left: 14px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 100;
-        font-size: 16px;
-        pointer-events: none;
-    }}
-    
-    /* Password icon */
-    [data-testid="stTextInput"]:nth-of-type(2)::before {{
-        content: "🔒";
-        position: absolute;
-        left: 14px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 100;
-        font-size: 16px;
-        pointer-events: none;
-    }}
-    
-    /* Checkbox styling */
-    .stCheckbox {{
+    /* Checkbox Row */
+    .checkbox-row {{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin: 20px 0 24px 0;
+    }}
+    
+    .stCheckbox {{
+        margin: 0 !important;
     }}
     
     .stCheckbox label {{
@@ -214,8 +197,16 @@ st.markdown(f"""
         gap: 8px;
     }}
     
-    .stCheckbox label span {{
-        font-size: 13px !important;
+    .forgot-link {{
+        color: {PRIMARY};
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+    }}
+    
+    .forgot-link:hover {{
+        text-decoration: underline;
     }}
     
     /* Primary Button */
@@ -230,7 +221,6 @@ st.markdown(f"""
         border-radius: 14px !important;
         cursor: pointer !important;
         transition: all 0.2s ease !important;
-        margin-bottom: 0;
         letter-spacing: 0.5px;
     }}
     
@@ -238,34 +228,6 @@ st.markdown(f"""
         background: {PRIMARY_DARK} !important;
         transform: translateY(-1px);
         box-shadow: 0 8px 20px rgba(255, 107, 53, 0.25);
-    }}
-    
-    /* Link Buttons Row */
-    .link-row {{
-        display: flex;
-        gap: 12px;
-        margin-top: 16px;
-    }}
-    
-    .link-row .stButton {{
-        flex: 1;
-    }}
-    
-    .link-row .stButton > button {{
-        background: transparent !important;
-        color: {TEXT_GRAY} !important;
-        border: 1.5px solid {BORDER} !important;
-        padding: 12px !important;
-        font-size: 13px !important;
-        box-shadow: none !important;
-    }}
-    
-    .link-row .stButton > button:hover {{
-        border-color: {PRIMARY} !important;
-        color: {PRIMARY} !important;
-        background: {PRIMARY_ULTRA_LIGHT} !important;
-        transform: none !important;
-        box-shadow: none !important;
     }}
     
     /* Divider */
@@ -287,6 +249,20 @@ st.markdown(f"""
     
     .divider span {{
         margin: 0 12px;
+    }}
+    
+    /* Secondary Button */
+    .secondary-btn .stButton > button {{
+        background: transparent !important;
+        color: {PRIMARY} !important;
+        border: 1.5px solid {PRIMARY} !important;
+        box-shadow: none !important;
+    }}
+    
+    .secondary-btn .stButton > button:hover {{
+        background: {PRIMARY_ULTRA_LIGHT} !important;
+        transform: none !important;
+        box-shadow: none !important;
     }}
     
     /* Footer */
@@ -321,15 +297,6 @@ st.markdown(f"""
     }}
     
     /* ========== MAIN APP STYLES ========== */
-    .main-header {{
-        background: {BG_WHITE};
-        border-bottom: 1px solid {BORDER};
-        padding: 16px 32px;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }}
-    
     .main-container {{
         padding: 32px;
         max-width: 1400px;
@@ -350,12 +317,6 @@ st.markdown(f"""
         margin-bottom: 8px;
     }}
     
-    .welcome-text {{
-        font-size: 14px;
-        opacity: 0.9;
-    }}
-    
-    /* Stats Grid */
     .stats-grid {{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -384,106 +345,52 @@ st.markdown(f"""
         margin-bottom: 6px;
     }}
     
-    .stat-label {{
-        font-size: 13px;
-        color: {TEXT_GRAY};
-    }}
-    
-    /* Glass Cards for Upload/Results */
     .glass-card {{
         background: {BG_WHITE};
         border-radius: 24px;
         padding: 28px;
         border: 1px solid {BORDER};
         height: 100%;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-    }}
-    
-    .card-title {{
-        font-size: 20px;
-        font-weight: 600;
-        color: {TEXT_DARK};
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }}
-    
-    .upload-area {{
-        border: 2px dashed {BORDER};
-        border-radius: 16px;
-        padding: 40px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        background: {INPUT_BG};
-    }}
-    
-    .upload-area:hover {{
-        border-color: {PRIMARY};
-        background: {PRIMARY_ULTRA_LIGHT};
-    }}
-    
-    .result-area {{
-        background: {INPUT_BG};
-        border-radius: 16px;
-        padding: 20px;
-        border-left: 4px solid {PRIMARY};
-        min-height: 200px;
-    }}
-    
-    .result-text {{
-        font-size: 15px;
-        line-height: 1.6;
-        color: {TEXT_DARK};
-        margin-top: 12px;
     }}
     
     .logout-btn {{
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }}
+    
+    .logout-btn .stButton > button {{
         background: transparent !important;
         color: {TEXT_GRAY} !important;
         border: 1.5px solid {BORDER} !important;
         padding: 8px 20px !important;
-        border-radius: 12px !important;
+        width: auto !important;
         font-size: 13px !important;
     }}
     
-    .logout-btn:hover {{
+    .logout-btn .stButton > button:hover {{
         border-color: {ERROR} !important;
         color: {ERROR} !important;
-        background: transparent !important;
     }}
     
     /* Responsive */
-    @media (max-width: 768px) {{
+    @media (max-width: 640px) {{
         .auth-card {{
             padding: 28px 20px;
         }}
         .auth-title {{
             font-size: 24px;
         }}
+        .two-columns {{
+            flex-direction: column;
+            gap: 20px;
+        }}
         .stats-grid {{
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
         }}
         .main-container {{
             padding: 20px;
-        }}
-        .welcome-title {{
-            font-size: 22px;
-        }}
-        .glass-card {{
-            padding: 20px;
-            margin-bottom: 20px;
-        }}
-    }}
-    
-    @media (max-width: 480px) {{
-        .stats-grid {{
-            grid-template-columns: 1fr;
-        }}
-        .link-row {{
-            flex-direction: column;
         }}
     }}
     
@@ -495,11 +402,6 @@ st.markdown(f"""
     }}
     
     /* File uploader styling */
-    .stFileUploader {{
-        border: none !important;
-        padding: 0 !important;
-    }}
-    
     .stFileUploader > div {{
         border: 2px dashed {BORDER} !important;
         border-radius: 16px !important;
@@ -510,13 +412,6 @@ st.markdown(f"""
     .stFileUploader > div:hover {{
         border-color: {PRIMARY} !important;
         background: {PRIMARY_ULTRA_LIGHT} !important;
-    }}
-    
-    /* Image styling */
-    .stImage {{
-        border-radius: 16px;
-        overflow: hidden;
-        margin-top: 20px;
     }}
 </style>
 """, unsafe_allow_html=True)
@@ -626,7 +521,7 @@ def logout():
     st.rerun()
 
 # ============================================
-# LOGIN PAGE - Exact Reference Design
+# LOGIN PAGE - Side by Side Layout
 # ============================================
 
 def login_page():
@@ -645,22 +540,25 @@ def login_page():
             </div>
     """, unsafe_allow_html=True)
     
-    # Email/Username field with icon
-    st.markdown('<div class="form-group"><label class="input-label">Email or Username</label></div>', unsafe_allow_html=True)
-    email_or_user = st.text_input("", placeholder="Enter your email or username", key="login_email", label_visibility="collapsed")
+    # TWO COLUMN LAYOUT - Email and Password side by side
+    col1, col2 = st.columns(2)
     
-    # Password field with icon
-    st.markdown('<div class="form-group"><label class="input-label">Password</label></div>', unsafe_allow_html=True)
-    password = st.text_input("", type="password", placeholder="Enter your password", key="login_pass", label_visibility="collapsed")
+    with col1:
+        st.markdown('<div class="form-group"><label class="input-label">Email or Username</label></div>', unsafe_allow_html=True)
+        email_or_user = st.text_input("", placeholder="Enter your email or username", key="login_email", label_visibility="collapsed")
     
-    # Remember me and Forgot Password row
+    with col2:
+        st.markdown('<div class="form-group"><label class="input-label">Password</label></div>', unsafe_allow_html=True)
+        password = st.text_input("", type="password", placeholder="Enter your password", key="login_pass", label_visibility="collapsed")
+    
+    # Checkbox and Forgot Password row
     col1, col2 = st.columns(2)
     with col1:
         remember = st.checkbox("Remember me", key="remember_me")
     with col2:
-        st.markdown(f'<div style="text-align: right; margin-top: 8px;"><a href="#" style="color: {PRIMARY}; text-decoration: none; font-size: 13px;" onclick="return false;">Forgot Password?</a></div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="text-align: right; padding-top: 8px;"><a href="#" class="forgot-link" onclick="return false;">Forgot Password?</a></div>', unsafe_allow_html=True)
     
-    # Sign In button
+    # Login button
     if st.button("LOG IN →", key="signin_btn"):
         if email_or_user and password:
             success, result = login_user(email_or_user, password)
@@ -676,12 +574,13 @@ def login_page():
             st.markdown('<div class="error-msg">❌ Please fill in all fields</div>', unsafe_allow_html=True)
     
     # Divider
-    st.markdown('<div class="divider"><span>or</span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="divider"><span>or sign up with</span></div>', unsafe_allow_html=True)
     
-    # Sign Up button
-    if st.button("CREATE NEW ACCOUNT", key="create_acc"):
-        st.session_state.page = 'signup'
-        st.rerun()
+    # Create Account button
+    with st.container():
+        if st.button("CREATE NEW ACCOUNT", key="create_acc", use_container_width=True):
+            st.session_state.page = 'signup'
+            st.rerun()
     
     # Footer
     st.markdown(f"""
@@ -693,7 +592,7 @@ def login_page():
     """, unsafe_allow_html=True)
 
 # ============================================
-# SIGNUP PAGE - Matching Design
+# SIGNUP PAGE
 # ============================================
 
 def signup_page():
@@ -712,28 +611,32 @@ def signup_page():
             </div>
     """, unsafe_allow_html=True)
     
-    # Email field
-    st.markdown('<div class="form-group"><label class="input-label">Email Address</label></div>', unsafe_allow_html=True)
-    email = st.text_input("", placeholder="Enter your email", key="signup_email", label_visibility="collapsed")
+    # Two column layout for first row
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown('<div class="form-group"><label class="input-label">Email Address</label></div>', unsafe_allow_html=True)
+        email = st.text_input("", placeholder="Enter your email", key="signup_email", label_visibility="collapsed")
+    with col2:
+        st.markdown('<div class="form-group"><label class="input-label">Username</label></div>', unsafe_allow_html=True)
+        username = st.text_input("", placeholder="Choose a username", key="signup_user", label_visibility="collapsed")
     
-    # Username field
-    st.markdown('<div class="form-group"><label class="input-label">Username</label></div>', unsafe_allow_html=True)
-    username = st.text_input("", placeholder="Choose a username", key="signup_user", label_visibility="collapsed")
+    # Two column layout for password row
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown('<div class="form-group"><label class="input-label">Password</label></div>', unsafe_allow_html=True)
+        password = st.text_input("", type="password", placeholder="Create a password", key="signup_pass", label_visibility="collapsed")
+    with col2:
+        st.markdown('<div class="form-group"><label class="input-label">Confirm Password</label></div>', unsafe_allow_html=True)
+        confirm = st.text_input("", type="password", placeholder="Confirm your password", key="signup_confirm", label_visibility="collapsed")
     
-    # Password field
-    st.markdown('<div class="form-group"><label class="input-label">Password</label></div>', unsafe_allow_html=True)
-    password = st.text_input("", type="password", placeholder="Create a password (min 6 characters)", key="signup_pass", label_visibility="collapsed")
-    
-    # Confirm Password field
-    st.markdown('<div class="form-group"><label class="input-label">Confirm Password</label></div>', unsafe_allow_html=True)
-    confirm = st.text_input("", type="password", placeholder="Confirm your password", key="signup_confirm", label_visibility="collapsed")
-    
-    # Create Account button
+    # Sign up button
     if st.button("SIGN UP →", key="create_btn"):
         if not email or not username or not password:
             st.markdown('<div class="error-msg">❌ Please fill in all fields</div>', unsafe_allow_html=True)
         elif password != confirm:
             st.markdown('<div class="error-msg">❌ Passwords do not match</div>', unsafe_allow_html=True)
+        elif len(password) < 6:
+            st.markdown('<div class="error-msg">❌ Password must be at least 6 characters</div>', unsafe_allow_html=True)
         else:
             success, msg = register_user(email, username, password)
             if success:
@@ -751,8 +654,8 @@ def signup_page():
     # Divider
     st.markdown('<div class="divider"><span>already have an account?</span></div>', unsafe_allow_html=True)
     
-    # Back to Login button
-    if st.button("← BACK TO LOGIN", key="back_login"):
+    # Back to login button
+    if st.button("← BACK TO LOGIN", key="back_login", use_container_width=True):
         st.session_state.page = 'login'
         st.rerun()
     
@@ -766,7 +669,7 @@ def signup_page():
     """, unsafe_allow_html=True)
 
 # ============================================
-# FORGOT PASSWORD PAGE - Matching Design
+# FORGOT PASSWORD PAGE
 # ============================================
 
 def forgot_password_page():
@@ -789,13 +692,14 @@ def forgot_password_page():
     st.markdown('<div class="form-group"><label class="input-label">Email Address</label></div>', unsafe_allow_html=True)
     email = st.text_input("", placeholder="Enter your registered email", key="reset_email", label_visibility="collapsed")
     
-    # New Password field
-    st.markdown('<div class="form-group"><label class="input-label">New Password</label></div>', unsafe_allow_html=True)
-    new_password = st.text_input("", type="password", placeholder="Create new password (min 6 characters)", key="new_pass", label_visibility="collapsed")
-    
-    # Confirm Password field
-    st.markdown('<div class="form-group"><label class="input-label">Confirm New Password</label></div>', unsafe_allow_html=True)
-    confirm_password = st.text_input("", type="password", placeholder="Confirm your new password", key="confirm_pass", label_visibility="collapsed")
+    # Two column layout for new password
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown('<div class="form-group"><label class="input-label">New Password</label></div>', unsafe_allow_html=True)
+        new_password = st.text_input("", type="password", placeholder="Create new password", key="new_pass", label_visibility="collapsed")
+    with col2:
+        st.markdown('<div class="form-group"><label class="input-label">Confirm Password</label></div>', unsafe_allow_html=True)
+        confirm_password = st.text_input("", type="password", placeholder="Confirm password", key="confirm_pass", label_visibility="collapsed")
     
     # Reset button
     if st.button("RESET PASSWORD →", key="reset_btn"):
@@ -821,8 +725,8 @@ def forgot_password_page():
     # Divider
     st.markdown('<div class="divider"><span>remember your password?</span></div>', unsafe_allow_html=True)
     
-    # Back to Login button
-    if st.button("← BACK TO LOGIN", key="back_login_reset"):
+    # Back to login button
+    if st.button("← BACK TO LOGIN", key="back_login_reset", use_container_width=True):
         st.session_state.page = 'login'
         st.rerun()
     
@@ -836,23 +740,14 @@ def forgot_password_page():
     """, unsafe_allow_html=True)
 
 # ============================================
-# MAIN APP DASHBOARD - Matching Design
+# MAIN APP DASHBOARD
 # ============================================
 
 def main_app():
-    # Header with logout
-    col1, col2 = st.columns([6, 1])
-    with col1:
-        st.markdown(f"""
-        <div class="main-header" style="background: transparent; padding: 0 0 20px 0;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-size: 28px;">📝</span>
-                <span style="font-size: 20px; font-weight: 600; color: #1A1A2E;">Sinhala Handwritten OCR</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    with col2:
-        if st.button("🚪 Logout", key="logout_btn", help="Logout from your account"):
+    # Logout button in top right
+    col1, col2, col3 = st.columns([10, 1, 1])
+    with col3:
+        if st.button("🚪 Logout", key="logout_btn"):
             logout()
     
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
@@ -861,7 +756,7 @@ def main_app():
     st.markdown(f"""
     <div class="welcome-card">
         <div class="welcome-title">👋 Welcome back, {st.session_state.username}!</div>
-        <div class="welcome-text">Ready to convert your handwritten Sinhala documents? Upload an image below to get started.</div>
+        <div style="font-size: 14px; opacity: 0.9;">Ready to convert your handwritten Sinhala documents? Upload an image below to get started.</div>
     </div>
     """, unsafe_allow_html=True)
     
@@ -870,19 +765,19 @@ def main_app():
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-number">85%+</div>
-            <div class="stat-label">Accuracy Rate</div>
+            <div style="color: #6C6C6C; font-size: 13px;">Accuracy Rate</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">771</div>
-            <div class="stat-label">Training Samples</div>
+            <div style="color: #6C6C6C; font-size: 13px;">Training Samples</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">104</div>
-            <div class="stat-label">Characters</div>
+            <div style="color: #6C6C6C; font-size: 13px;">Characters</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">⚡</div>
-            <div class="stat-label">Real-time</div>
+            <div style="color: #6C6C6C; font-size: 13px;">Real-time</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -894,10 +789,10 @@ def main_app():
             processor, model, device = load_ocr_model()
         
         if processor is None:
-            st.error("❌ Failed to load OCR model. Please check the model files.")
-            return
+            st.error("❌ Failed to load OCR model")
+            processor, model, device = None, None, None
     except ImportError:
-        st.warning("⚠️ OCR module not found. Using demo mode.")
+        st.warning("⚠️ OCR module not loaded. Using demo mode.")
         processor, model, device = None, None, None
     
     # Two Column Layout for Upload and Results
@@ -906,9 +801,7 @@ def main_app():
     with col1:
         st.markdown("""
         <div class="glass-card">
-            <div class="card-title">
-                <span>📤</span> Upload Image
-            </div>
+            <h3 style="color: #1A1A2E; margin-bottom: 20px;">📤 Upload Image</h3>
         """, unsafe_allow_html=True)
         
         uploaded = st.file_uploader(
@@ -933,9 +826,9 @@ def main_app():
                         st.error(f"❌ Error: {error}")
         else:
             st.markdown("""
-            <div class="upload-area">
+            <div style="text-align: center; padding: 40px; border: 2px dashed #E8E8E8; border-radius: 16px; background: #F8F8F8;">
                 <div style="font-size: 48px; margin-bottom: 12px;">📸</div>
-                <p style="color: #6C6C6C; margin-bottom: 4px;">Drag & drop or click to upload</p>
+                <p style="color: #6C6C6C;">Drag & drop or click to upload</p>
                 <p style="font-size: 12px; color: #B0B0B0;">Supports PNG, JPG, JPEG</p>
             </div>
             """, unsafe_allow_html=True)
@@ -945,25 +838,20 @@ def main_app():
     with col2:
         st.markdown("""
         <div class="glass-card">
-            <div class="card-title">
-                <span>📝</span> Recognized Text
-            </div>
+            <h3 style="color: #1A1A2E; margin-bottom: 20px;">📝 Recognized Text</h3>
         """, unsafe_allow_html=True)
         
         if st.session_state.predicted_text:
             st.markdown(f"""
-            <div class="result-area">
+            <div style="background: #F8F8F8; border-radius: 16px; padding: 20px; border-left: 4px solid #FF6B35;">
                 <strong style="color: #FF6B35;">Output:</strong>
-                <div class="result-text">
-                    {st.session_state.predicted_text}
-                </div>
+                <p style="color: #1A1A2E; margin-top: 12px; line-height: 1.6;">{st.session_state.predicted_text}</p>
             </div>
             """, unsafe_allow_html=True)
             
             if st.session_state.prediction_time:
                 st.caption(f"🕐 Processed at: {st.session_state.prediction_time.strftime('%I:%M:%S %p')}")
             
-            # Download button
             txt_data = io.BytesIO(st.session_state.predicted_text.encode('utf-8'))
             st.download_button(
                 "💾 Download as Text",
@@ -973,7 +861,7 @@ def main_app():
             )
         else:
             st.markdown("""
-            <div class="upload-area" style="border: none; background: #F8F8F8;">
+            <div style="text-align: center; padding: 40px; border: 2px dashed #E8E8E8; border-radius: 16px; background: #F8F8F8;">
                 <div style="font-size: 48px; margin-bottom: 12px;">📄</div>
                 <p style="color: #6C6C6C;">Upload an image and click<br>"Recognize Text" to see results</p>
                 <p style="font-size: 12px; color: #B0B0B0;">Results will appear here</p>
@@ -984,7 +872,7 @@ def main_app():
     
     # Footer
     st.markdown(f"""
-    <div class="auth-footer" style="margin-top: 32px;">
+    <div style="text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid #E8E8E8; color: #B0B0B0; font-size: 11px;">
         © 2025 Sinhala Handwritten OCR | Powered by TrOCR • Deep Learning • AI Innovation
     </div>
     """, unsafe_allow_html=True)
